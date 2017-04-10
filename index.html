@@ -561,9 +561,15 @@
       var cardContent = document.createElement("div");
       cardContent.setAttribute("class","card-content"); 
 
+      if(content.from.indexOf("<") >= 0 && content.from.indexOf(">") < 0  ){
       fromSplit = content.from.split("<");
       fromName = fromSplit[0];
       fromEmail = fromSplit[1].replace(">","");
+    }
+      else {
+        fromName = content.from;
+        fromEmail = content.from;
+      }  
 
       cardContent.innerHTML = "<div class='card-from'> <h3> "+ fromName +" </h3> <h5>"+fromEmail+"</h5> </div><hr><br/>" +
       "<div class = 'card-subject'> " + content.subject + "</div><hr><br/>" +
